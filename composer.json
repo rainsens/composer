@@ -1,0 +1,47 @@
+{
+    "name": "rainsens/composer",
+    "description": "A composer file modifier based upon Laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rainsen",
+            "email": "yusen@rainsen.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rainsens\\Composer\\": "src"
+        },
+        "files": [
+            "bootstrap/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rainsens\\Composer\\Tests\\": "tests"
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^9.4"
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit",
+        "test-f": "./vendor/bin/phpunit --filter"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rainsens\\Composer\\Providers\\ComposerServiceProvider"
+            ],
+            "aliases": {
+                "Modifier": "Rainsenss\\Composer\\Facades\\Modifier"
+            }
+        }
+    }
+}
